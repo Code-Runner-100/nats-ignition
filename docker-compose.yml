@@ -1,0 +1,17 @@
+services:
+  nats:
+    image: nats:latest
+    container_name: nats
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:4222:4222"   # NATS client
+      - "0.0.0.0:8222:8222"   # HTTP monitoring
+      - "0.0.0.0:1880:1883"   # MQTT (host 1880 → container 1883)
+    volumes:
+      - ./nats.conf:/etc/nats/nats.conf
+      - nats-data:/data/jetstream
+    command: ["-c", "/etc/nats/nats.conf"]
+
+volumes:
+  nats-data:
+    driver: local
