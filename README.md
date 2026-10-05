@@ -121,15 +121,3 @@ Then re-run the subscriber — it will auto-decode `spBv1.0/...` subjects.
 
 ---
 
-## Windows — Docker Desktop Port Binding
-
-Docker Desktop on Windows (WSL2 mode) binds container ports to `127.0.0.1`, not `0.0.0.0`. LAN devices can't reach the port even with explicit `0.0.0.0:` bindings in compose.
-
-Fix with a port proxy (PowerShell as Administrator):
-
-```powershell
-netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=1880 connectaddress=127.0.0.1 connectport=1880
-New-NetFirewallRule -DisplayName "NATS MQTT 1880" -Direction Inbound -Protocol TCP -LocalPort 1880 -Action Allow -Profile Any
-```
-
-Full details: [docs/windows-wsl2.md](docs/windows-wsl2.md)
