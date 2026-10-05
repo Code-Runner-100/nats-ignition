@@ -1,6 +1,6 @@
 # nats-ignition
 
-Standalone NATS server with JetStream + MQTT, wired up for Ignition SCADA and Sparkplug B. No leaf nodes, no hub. Drop it on any machine and start connecting clients.
+Standalone NATS server with JetStream + MQTT, set up for Ignition SCADA and Sparkplug B. No leaf nodes, no hub. Drop it on any machine and start connecting clients.
 
 ---
 
@@ -61,7 +61,7 @@ MQTT clients connect without credentials (`no_auth_user` is set to `nats-client`
 
 ## Ignition Setup
 
-**Transmission** (edge, publishes data):
+**Transmission in Ignition <Example>** (edge, publishes data):
 
 | Field | Value |
 |-------|-------|
@@ -77,7 +77,7 @@ MQTT clients connect without credentials (`no_auth_user` is set to `nats-client`
 
 Full walkthrough: [docs/ignition-transmission.md](docs/ignition-transmission.md) · [docs/ignition-engine.md](docs/ignition-engine.md)
 
-> **No spaces or dots in Group ID, Edge Node ID, or Device ID.** NATS maps MQTT topics to subjects — dots and spaces are illegal in subject segments. Use underscores or hyphens: `site_01`, `edge-01`. Tag names inside the Sparkplug payload are fine.
+> **No spaces or dots in Group ID, Edge Node ID, or Device ID.** NATS maps MQTT topics to subjects. dots and spaces are illegal in subject segments. Use underscores or hyphens: `site_01`, `edge-01`. Tag names inside the Sparkplug payload are fine.
 
 ---
 
