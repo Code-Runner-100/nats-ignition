@@ -65,6 +65,7 @@ If you have MQTT Engine configured with a Primary Host ID, Transmission will wai
 - Check the URL — host, port, protocol (`tcp://` not `mqtt://`)
 - Verify portproxy is running on Windows (see `docs/windows-wsl2.md`)
 - Confirm no other broker (Mosquitto, etc.) is sitting on that port
+- Refresh Transmission Module if you do not see data at the engine side OR the transmission module is not connecting. 
 
 **`Failed to create ServerContext` in logs:**
 - Delete and recreate the server entry — stale entries from a previous config don't always clean up
