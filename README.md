@@ -46,7 +46,7 @@ curl http://localhost:8222/varz
 |-------------|-----------------|----------|---------|
 | 4222 | 4222 | TCP | NATS client |
 | 8222 | 8222 | HTTP | Monitoring |
-| 1880 | 1883 | TCP | MQTT |
+| 1883 | 1883 | TCP | MQTT |
 
 ---
 
@@ -74,7 +74,7 @@ MQTT clients connect without credentials (`no_auth_user` is set to `nats-client`
 
 | Field | Value |
 |-------|-------|
-| Server URL | `tcp://localhost:1880` |
+| Server URL | `tcp://localhost:1883` |
 
 Full walkthrough: [docs/ignition-transmission.md](docs/ignition-transmission.md) · [docs/ignition-engine.md](docs/ignition-engine.md)
 
