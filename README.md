@@ -98,25 +98,4 @@ nats sub ">" --server nats://nats-client:natspass123@localhost:4222
 nats pub test.hello "hello world" --server nats://nats-client:natspass123@localhost:4222
 ```
 
----
-
-## Python Subscriber
-
-```bash
-pip install nats-py
-python examples/subscriber.py
-# or point at a remote server:
-python examples/subscriber.py --server nats://nats-client:natspass123@10.0.0.215:4222
-```
-
-For Sparkplug B decode, generate the protobuf module first:
-
-```bash
-pip install grpcio-tools
-python -m grpc_tools.protoc -I examples/sparkplug --python_out=examples/sparkplug examples/sparkplug/sparkplug_b.proto
-```
-
-Then re-run the subscriber — it will auto-decode `spBv1.0/...` subjects.
-
----
 
