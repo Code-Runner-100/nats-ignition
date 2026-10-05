@@ -15,7 +15,6 @@ examples/
     sparkplug_b.proto    # Sparkplug B protobuf definition
     __init__.py
 docs/
-  windows-wsl2.md        # Docker Desktop port binding fix for Windows
   ignition-transmission.md
   ignition-engine.md
 ```
@@ -66,7 +65,7 @@ MQTT clients connect without credentials (`no_auth_user` is set to `nats-client`
 
 | Field | Value |
 |-------|-------|
-| Server URL | `tcp://<NATS_HOST>:1880` |
+| Server URL | `tcp://<NATS_HOST>:1883` |
 | Group ID | `site01` |
 | Edge Node ID | `edge01` |
 
