@@ -9,11 +9,11 @@ In Ignition Designer → MQTT Transmission → Settings → Servers, add a new s
 | Field | Value |
 |-------|-------|
 | Name | Nats-Gen (or whatever you want) |
-| URL | `tcp://<NATS_HOST>:1880` |
+| URL | `tcp://<NATS_HOST>:1883` |
 | Client ID | leave default |
 
-If Ignition is on the **same machine** as Docker, use `tcp://localhost:1880`.  
-If Ignition is on a **different machine** (e.g., a k3s edge pod), use the NATS host's LAN IP: `tcp://10.0.0.215:1880`.
+If Ignition is on the **same machine** as Docker, use `tcp://localhost:1883`.  
+If Ignition is on a **different machine** (e.g., a k3s edge pod), use the NATS host's LAN IP: `tcp://10.0.0.215:1883`.
 
 No username/password needed — `no_auth_user` is configured in nats.conf.
 
@@ -37,14 +37,14 @@ NATS maps MQTT topics directly to NATS subjects. Dots (`.`) and spaces are illeg
 
 **Use underscores or hyphens instead:** `site_01`, `edge-01`, `device_01`.
 
-Tag *names* inside the Sparkplug payload are fine — they travel inside the Protobuf, not the topic string.
+Tag *names* inside the Sparkplug payload are fine.They travel inside the Protobuf, not the topic string.
 
 ## Verifying the Connection
 
 Transmission logs (Ignition → Status → Logs) should show:
 
 ```
-Connected to tcp://<NATS_HOST>:1880
+Connected to tcp://<NATS_HOST>:1883
 ```
 
 On the NATS side, confirm with:
