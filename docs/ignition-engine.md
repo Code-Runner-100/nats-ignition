@@ -9,7 +9,7 @@ In Ignition Designer → MQTT Engine → Settings → Servers:
 | Field | Value |
 |-------|-------|
 | Name | Nats-Local |
-| URL | `tcp://localhost:1880` |
+| URL | `tcp://localhost:1883` |
 
 Engine typically runs on the same machine as NATS (or in the same Docker Compose stack), so `localhost` works.
 
@@ -29,3 +29,6 @@ Engine status should show the server as **Connected**. Tags appear in the tag br
 - **Transmission** = publisher. Runs on the edge Ignition Gateway, sends device data up.
 
 They can run on the same Ignition instance for local testing. For production, Engine is central and Transmission is at the edge.
+
+- **Note**
+  If you do not see new tags that were added to the transmission side. Reset your transmission module. 
