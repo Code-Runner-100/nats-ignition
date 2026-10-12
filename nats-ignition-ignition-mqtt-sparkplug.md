@@ -108,11 +108,11 @@ In Ignition Designer, go to MQTT Transmission, Settings, Servers, and add a serv
 
 > **Note:** The screenshots below show port `1880` instead of `1883`. I mapped the host port to `1880` on my test machine to avoid conflicts with other MQTT brokers I had running. The repo and config use the standard `1883:1883` mapping -- change the host port if you need to do the same.
 
-![Transmission server entry showing Nats-Gen connected 1 of 1](/img/blog/nats-ignition/transmission-servers.png)
+![Transmission server entry showing Nats-Gen connected 1 of 1](/static/img/blog/nats-ignition/transmission-servers.png)
 
 Then set your Group ID and Edge Node ID under Transmitters. These become the Sparkplug B namespace segments.
 
-![Transmitter Sparkplug settings -- Group ID and Edge Node ID](/img/blog/nats-ignition/transmitter-sparkplug.png)
+![Transmitter Sparkplug settings -- Group ID and Edge Node ID](/static/img/blog/nats-ignition/transmitter-sparkplug.png)
 
 **Watch your naming.** NATS maps MQTT topics directly to subjects. Dots (`.`) are the NATS subject delimiter, so a dot in your Group ID or Edge Node ID will break things. No spaces either. Use underscores or hyphens: `site_01`, `edge-01`, `device_01`. Tag names inside the Sparkplug payload are fine since they don't hit the topic.
 
@@ -125,11 +125,11 @@ Engine subscribes to NATS and surfaces the tags in Ignition's tag tree. Add a se
 | Name | Nats-Local |
 | URL | `tcp://<NATS_HOST>:1883` |
 
-![Engine server config](/img/blog/nats-ignition/engine-server.png)
+![Engine server config](/static/img/blog/nats-ignition/engine-server.png)
 
 Once Engine connects and Transmission publishes its first `DBIRTH`, tags appear under `Edge Nodes / <GroupID> / <EdgeNodeID>` in the tag browser. The left side below is the source in Transmission, the right is Engine receiving the same tags with live values.
 
-![Tag browser side by side -- Transmission source on the left, Engine receiving on the right](/img/blog/nats-ignition/tag-browser.png)
+![Tag browser side by side -- Transmission source on the left, Engine receiving on the right](/static/img/blog/nats-ignition/tag-browser.png)
 
 ## Verify NATS connections
 
@@ -139,7 +139,7 @@ Hit the monitoring endpoint to confirm MQTT clients are connected:
 curl http://localhost:8222/connz
 ```
 
-![NATS connz showing two active MQTT connections with live message counts](/img/blog/nats-ignition/nats-connz.png)
+![NATS connz showing two active MQTT connections with live message counts](/static/img/blog/nats-ignition/nats-connz.png)
 
 Two MQTT clients, `in_msgs` climbing -- that's Transmission publishing Sparkplug B data.
 
