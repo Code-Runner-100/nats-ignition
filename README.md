@@ -7,16 +7,20 @@ Standalone NATS server with JetStream + MQTT, set up for Ignition SCADA and Spar
 ## What's in here
 
 ```
-docker-compose.yml       # NATS container
-nats.conf                # Server config — JetStream, MQTT, single account
+docker/
+  docker-compose.yml       # NATS container
+  nats.conf                # Server config -- JetStream, MQTT, single account
 examples/
-  subscriber.py          # Python NATS subscriber with Sparkplug B decode
+  subscriber.py            # Python NATS subscriber with Sparkplug B decode
   sparkplug/
-    sparkplug_b.proto    # Sparkplug B protobuf definition
+    sparkplug_b.proto      # Sparkplug B protobuf definition
     __init__.py
-docs/                    # Configuration steps on the Ignition Transmission and Engine gateways
-  ignition-transmission.md
-  ignition-engine.md
+docs/
+  ignition-transmission.md # Configuration steps for MQTT Transmission
+  ignition-engine.md       # Configuration steps for MQTT Engine
+content/blog/
+  nats-ignition-ignition-mqtt-sparkplug.md  # nats.io blog post
+static/img/blog/nats-ignition/              # Blog post images
 ```
 
 ---
