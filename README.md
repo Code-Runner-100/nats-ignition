@@ -14,7 +14,7 @@ examples/
   sparkplug/
     sparkplug_b.proto    # Sparkplug B protobuf definition
     __init__.py
-docs/
+docs/                    # Configuration steps on the Ignition Transmission and Engine gateways
   ignition-transmission.md
   ignition-engine.md
 ```
